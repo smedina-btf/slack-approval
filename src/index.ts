@@ -34,8 +34,8 @@ async function run(): Promise<void> {
     const actor      = process.env.GITHUB_ACTOR || "";
 
     (async () => {
-      await web.chat.postMessage({ 
-        channel: channel_id, 
+      await web.chat.postMessage({
+        channel: channel_id,
         text: "GitHub Actions Approval request",
         blocks: [
             {
@@ -52,7 +52,7 @@ async function run(): Promise<void> {
                   "type": "mrkdwn",
                   "text": `*GitHub Actor:* ${actor}`
                 },
-                
+
                 {
                   "type": "mrkdwn",
                   "text": `*ENV:* ${environment}`
@@ -111,13 +111,13 @@ async function run(): Promise<void> {
               'text': `Approved by <@${body.user.id}> `,
             },
           })
-  
+
           await client.chat.update({
             channel: body.channel?.id || "",
             ts: (<BlockAction>body).message?.ts || "",
             blocks: response_blocks
           })
-          
+
           process.exit(0);
         }
       } catch (error) {
@@ -156,8 +156,8 @@ async function run(): Promise<void> {
     });
 
     (async () => {
-      const res = await app.start(runport);
-      console.log('Waiting Approval reaction.....');
+        await app.start(runport);
+        console.log('Waiting Approval reaction.....');
     })();
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message)

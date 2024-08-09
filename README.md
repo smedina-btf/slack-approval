@@ -1,4 +1,4 @@
-# slack-approval
+w# slack-approval
 
 custom action to send approval request to Slack
 
@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: send approval
-        uses: khimananda/slack-approval@main
+        uses: gobetterfly/btf-slack-approval@main
         env:
           SLACK_APP_TOKEN: ${{ secrets.SLACK_APP_TOKEN }}
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
