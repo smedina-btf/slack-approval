@@ -1,4 +1,4 @@
-w# slack-approval
+# Slack approval - Action
 
 custom action to send approval request to Slack
 
