@@ -8,7 +8,6 @@ const signingSecret =  process.env.SLACK_SIGNING_SECRET || ""
 const slackAppToken = process.env.SLACK_APP_TOKEN || ""
 const channel_id    = process.env.SLACK_CHANNEL_ID || ""
 const environment   = process.env.ENVIRONMENT || ""
-const url           = process.env.URL || ""
 const runport : any  = process.env.PORT || 3000
 const acceptValue : any = `${randomUUID()}-approve`;
 const rejectValue : any = `${randomUUID()}-reject`;
@@ -49,6 +48,10 @@ async function run(): Promise<void> {
               "type": "section",
               "fields": [
                 {
+                    "type": "mrkdwn",
+                    "text": `*GitHub Repository:* ${github_repos}`
+                },
+                {
                   "type": "mrkdwn",
                   "text": `*GitHub Actor:* ${actor}`
                 },
@@ -63,7 +66,7 @@ async function run(): Promise<void> {
                 },
                 {
                   "type": "mrkdwn",
-                  "text": `*URL: *${url}`
+                  "text": `*URL: *${actionsUrl}`
                 }
               ]
             },
