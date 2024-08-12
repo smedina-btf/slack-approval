@@ -26,6 +26,7 @@ jobs:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
           SLACK_SIGNING_SECRET: ${{ secrets.SLACK_SIGNING_SECRET }}
           SLACK_CHANNEL_ID: ${{ secrets.SLACK_CHANNEL_ID }}
+          ENVIRONMENT: ${{steps.extract_workspace.outputs.workspace}}
         timeout-minutes: 10
 ```
 
@@ -46,6 +47,10 @@ jobs:
   - `SLACK_CHANNEL_ID`
 
     - Channel ID for which you want to send approval.
+    
+  - `ENVIROMENT`
+
+    - Environment deployment name as text. Only for info purpose.
 
 - Set `timeout-minutes`
   - Set the time to wait for approval.
