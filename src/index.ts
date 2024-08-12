@@ -49,10 +49,6 @@ async function run(): Promise<void> {
               "fields": [
                 {
                   "type": "mrkdwn",
-                  "text": "*GitHub Repository:*" + github_repos
-                },
-                {
-                  "type": "mrkdwn",
                   "text": `*GitHub Actor:* ${actor}`
                 },
 
@@ -62,11 +58,11 @@ async function run(): Promise<void> {
                 },
                 {
                   "type": "mrkdwn",
-                  "text": `*Workflow:* ${workflow}`
+                  "text": `*Repository:* ${github_repos}`
                 },
                 {
                   "type": "mrkdwn",
-                  "text": "*URL:* " + actionsUrl
+                  "text": `*Url:* ${actionsUrl}`
                 }
               ]
             },
