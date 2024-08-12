@@ -59,8 +59,6 @@ function run() {
             const github_repos = process.env.GITHUB_REPOSITORY || "";
             const run_id = process.env.GITHUB_RUN_ID || "";
             const actionsUrl = `${github_server_url}/${github_repos}/actions/runs/${run_id}`;
-            const workflow = process.env.GITHUB_WORKFLOW || "";
-            const runnerOS = process.env.RUNNER_OS || "";
             const actor = process.env.GITHUB_ACTOR || "";
             (() => __awaiter(this, void 0, void 0, function* () {
                 yield web.chat.postMessage({
