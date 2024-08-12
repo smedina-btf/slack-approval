@@ -2,7 +2,7 @@ name: pipeline-approval
 description: Custom action to send approval request to Slack from GitHub Actions
 author: Khimananda
 runs:
-  using: "node18"
+  using: "node20"
   main: "dist/index.js"
 branding:
   icon: plus
