@@ -41,7 +41,6 @@ const signingSecret = process.env.SLACK_SIGNING_SECRET || "";
 const slackAppToken = process.env.SLACK_APP_TOKEN || "";
 const channel_id = process.env.SLACK_CHANNEL_ID || "";
 const environment = process.env.ENVIRONMENT || "";
-const url = process.env.URL || "";
 const runport = process.env.PORT || 3000;
 const acceptValue = `${(0, crypto_1.randomUUID)()}-approve`;
 const rejectValue = `${(0, crypto_1.randomUUID)()}-reject`;
@@ -72,7 +71,7 @@ function run() {
                             "type": "section",
                             "text": {
                                 "type": "mrkdwn",
-                                "text": "GitHub <" + actionsUrl + "|ACTION> Approval Request",
+                                "text": "GitHub Action *Approval Request*",
                             }
                         },
                         {
@@ -88,11 +87,11 @@ function run() {
                                 },
                                 {
                                     "type": "mrkdwn",
-                                    "text": `*Workflow:* ${workflow}`
+                                    "text": `*Repository:* ${github_repos}`
                                 },
                                 {
                                     "type": "mrkdwn",
-                                    "text": `*URL: *${url}`
+                                    "text": `*Url:* ${actionsUrl}`
                                 }
                             ]
                         },
@@ -181,7 +180,7 @@ function run() {
                 }
             }));
             (() => __awaiter(this, void 0, void 0, function* () {
-                const res = yield app.start(runport);
+                yield app.start(runport);
                 console.log('Waiting Approval reaction.....');
             }))();
         }
